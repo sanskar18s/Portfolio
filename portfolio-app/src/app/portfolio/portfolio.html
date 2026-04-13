@@ -1,0 +1,121 @@
+<div class="portfolio-container">
+  <!-- Stickman Teacher - Large Bottom Left -->
+  <div class="stickman-teacher" [class]="'stickman-teacher ' + teacherAnimation">
+    <svg viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg" #stickmanSvg>
+      <!-- Head -->
+      <circle cx="50" cy="25" r="12" stroke="white" stroke-width="2.5" fill="white" opacity="0.95"/>
+      
+      <!-- Smiling face -->
+      <circle cx="47" cy="23" r="1.5" fill="black"/>
+      <circle cx="53" cy="23" r="1.5" fill="black"/>
+      <path d="M 46 26 Q 50 28 54 26" stroke="black" stroke-width="1.2" fill="none"/>
+      
+      <!-- Body -->
+      <line x1="50" y1="37" x2="50" y2="95" stroke="white" stroke-width="2.5"/>
+      
+      <!-- Left Arm (pointing upward at board) - INTERACTIVE with CHALK -->
+      <line [attr.x2]="armX2" [attr.y2]="armY2" x1="50" y1="48" stroke="white" stroke-width="2.5"/>
+      <!-- Chalk stick in left hand -->
+      <line [attr.x1]="handX" [attr.y1]="handY" [attr.x2]="handX - 8" [attr.y2]="handY - 5" stroke="#FFE4B5" stroke-width="3" stroke-linecap="round"/>
+      <rect [attr.x]="handX - 8" [attr.y]="handY - 6" width="3" height="2.5" fill="#FFD700" stroke="none"/>
+      
+      <!-- Right Arm (down) with DUSTER -->
+      <line x1="50" y1="48" x2="70" y2="65" stroke="white" stroke-width="2.5"/>
+      <!-- Duster/Eraser in right hand -->
+      <rect x="68" y="62" width="8" height="6" fill="#8B4513" stroke="white" stroke-width="1.5" rx="1"/>
+      <!-- <line x="72" y="68" x2="72" y2="72" stroke="white" stroke-width="1.5"/> -->
+      
+      <!-- Legs (standing position) -->
+      <line x1="50" y1="95" x2="38" y2="155" stroke="white" stroke-width="2.5"/>
+      <line x1="50" y1="95" x2="62" y2="155" stroke="white" stroke-width="2.5"/>
+      
+      <!-- Feet -->
+      <line x1="38" y1="155" x2="35" y2="155" stroke="white" stroke-width="2"/>
+      <line x1="62" y1="155" x2="65" y2="155" stroke="white" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- Main Blackboard with Scroll -->
+  <div class="blackboard" #blackboardContent>
+    <!-- Chalk dust animation elements -->
+    <div class="chalk-dust"></div>
+
+    <!-- Header Section on Blackboard -->
+    <div class="blackboard-section header-section">
+      <h1 class="chalk-text">{{ name }}</h1>
+      <h2 class="chalk-subtitle">{{ title }}</h2>
+      <div class="contact-info">
+        <p>📞 {{ contact.phone }}</p>
+        <p>✉️ {{ contact.email }}</p>
+        <p>💼 {{ contact.linkedin }}</p>
+        <p>💻 {{ contact.github }}</p>
+      </div>
+    </div>
+
+    <!-- Summary Section -->
+    <div class="blackboard-section summary-section">
+      <h3 class="chalk-heading">SUMMARY</h3>
+      <p class="chalk-text">{{ summary }}</p>
+    </div>
+
+    <!-- Education Section -->
+    <div class="blackboard-section education-section">
+      <h3 class="chalk-heading">EDUCATION</h3>
+      <div class="content-box">
+        <p class="bold-text">{{ education.school }}</p>
+        <p class="chalk-text">{{ education.period }}</p>
+        <p class="chalk-text">{{ education.cgpa }}</p>
+      </div>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="blackboard-section experience-section">
+      <h3 class="chalk-heading">EXPERIENCE</h3>
+      <div *ngFor="let exp of experience" class="content-box">
+        <p class="bold-text">{{ exp.company }} - {{ exp.position }}</p>
+        <p class="period-text">{{ exp.period }}</p>
+        <p class="chalk-text">{{ exp.description }}</p>
+      </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="blackboard-section projects-section">
+      <h3 class="chalk-heading">PROJECTS</h3>
+      <div *ngFor="let project of projects" class="project-item">
+        <div class="project-header">
+          <p class="bold-text">{{ project.title }}</p>
+          <span class="period-tag">{{ project.period }}</span>
+        </div>
+        <p class="chalk-text">{{ project.description }}</p>
+        <div class="tech-tags">
+          <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="blackboard-section skills-section">
+      <h3 class="chalk-heading">SKILLS</h3>
+      <div class="skills-grid">
+        <div *ngFor="let skillGroup of skills" class="skill-group">
+          <p class="skill-category">{{ skillGroup.category }}</p>
+          <p class="chalk-text">{{ skillGroup.items.join(', ') }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements Section -->
+    <div class="blackboard-section achievements-section">
+      <h3 class="chalk-heading">ACHIEVEMENTS & LEADERSHIP</h3>
+      <ul class="chalk-list">
+        <li *ngFor="let achievement of achievements" class="chalk-text">✓ {{ achievement }}</li>
+      </ul>
+    </div>
+
+    <!-- Footer -->
+    <div class="blackboard-footer">
+      <p class="chalk-text footer-text">Thank you for visiting my portfolio! 🎓</p>
+    </div>
+  </div>
+
+

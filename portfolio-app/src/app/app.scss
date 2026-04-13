@@ -1,0 +1,46 @@
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background-attachment: fixed;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 5px;
+
+  &:hover {
+    background: #777;
+  }
+}
+
+// Selection styling
+::selection {
+  background: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
